@@ -16,7 +16,7 @@ const sendWelcomeEmail = async (email, name, password) => {
       service: 'gmail',
       auth: { user: process.env.EMAIL_USER, pass: process.env.EMAIL_PASS }
     });
-    const loginUrl = 'http://localhost:5173';
+    const loginUrl = process.env.FRONTEND_URL || 'http://localhost:5173';
     await transporter.sendMail({
       from: process.env.EMAIL_USER,
       to: email,
